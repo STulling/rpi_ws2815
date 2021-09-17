@@ -58,9 +58,9 @@
 #define OSC_FREQ                                 19200000   // crystal frequency
 #define OSC_FREQ_PI4                             54000000   // Pi 4 crystal frequency
 
-/* 4 colors (R, G, B + W), 8 bits per byte, 3 symbols per bit + 55uS low for reset signal */
+/* 4 colors (R, G, B + W), 8 bits per byte, 3 symbols per bit + 285uS low for reset signal */
 #define LED_COLOURS                              4
-#define LED_RESET_uS                             55
+#define LED_RESET_uS                             285
 #define LED_BIT_COUNT(leds, freq)                ((leds * LED_COLOURS * 8 * 3) + ((LED_RESET_uS * \
                                                   (freq * 3)) / 1000000))
 
@@ -1164,7 +1164,7 @@ ws2811_return_t  ws2811_render(ws2811_t *ws2811)
         }
 
         // 1.25µs per bit
-        const uint32_t channel_protocol_time = channel->count * array_size * 8 * 1.25;
+        const uint32_t channel_protocol_time = channel->count * array_size * 8 * 1.5;
 
         // Only using the channel which takes the longest as both run in parallel
         if (channel_protocol_time > protocol_time)

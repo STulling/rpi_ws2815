@@ -392,9 +392,13 @@ int main(int argc, char *argv[])
 
     while (running)
     {
-        matrix_raise();
-        matrix_bottom();
-        matrix_render();
+        for (x = 0; x < width; x++)
+		{
+			for (y = 0; y < height; y++)
+			{
+				ledstring.channel[0].leds[(y * width) + x] = 0x00000020;
+			}
+		}
 
         if ((ret = ws2811_render(&ledstring)) != WS2811_SUCCESS)
         {
