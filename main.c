@@ -392,9 +392,9 @@ int main(int argc, char *argv[])
 
     while (running)
     {
-        for (x = 0; x < width; x++)
+        for (int x = 0; x < width; x++)
 		{
-			for (y = 0; y < height; y++)
+			for (int y = 0; y < height; y++)
 			{
 				ledstring.channel[0].leds[(y * width) + x] = 0x00000020;
 			}
