@@ -142,7 +142,7 @@ void matrix_clear(void)
     }
 }
 
-int dotspos[] = { 0, 1, 2, 3, 4, 5, 6, 7 };
+int dotspos[] = { 0, 1, 2, 3};
 ws2811_led_t dotcolors[] =
 {
     0x00200000,  // red
@@ -183,7 +183,7 @@ void matrix_bottom(void)
         if (ledstring.channel[0].strip_type == SK6812_STRIP_RGBW) {
             matrix[dotspos[i] + (height - 1) * width] = dotcolors_rgbw[i];
         } else {
-            matrix[dotspos[i] + (height - 1) * width] = dotcolors[i];
+            matrix[dotspos[i] + (height - 1) * width] = 0x00200000;
         }
     }
 }
